@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标事件</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    img{
+        position: absolute;
+        left: 0;
+        top:0;
+    }
+</style>
+<body>
+<img src="images/img.jpg" alt="" width="100" id="img">
+</body>
+</html>
+<script>
+      //缓动
+      document.onclick = function(event){
+          var event = event||window.event;
+          targetx = event.clientX-img.offsetWidth/2;
+          targety  = event.clientY-img.offsetHeight/2;
+      }
+    var leaderx = 0;
+    var leadery = 0;
+    var targetx = 0;
+    var targety = 0;
+      var img = document.getElementById("img");
+    setInterval(function(){
+        leaderx = leaderx+(targetx-leaderx)/10;
+        leadery = leadery+(targety-leadery)/10;
+        img.style.left = leaderx+"px";
+        img.style.top =leadery+"px";
+    },1);
+</script>
